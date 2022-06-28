@@ -3,6 +3,8 @@ const app = express();
 const path = require('path')
 const port = process.env.PORT || 5000
 const hbs = require('hbs');
+// mongodb connection 
+require('./server/database/database')();
 
 const partials_path = path.join(__dirname, "./views_folder/partials")
 
