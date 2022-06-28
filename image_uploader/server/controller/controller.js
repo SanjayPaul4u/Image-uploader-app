@@ -2,8 +2,9 @@ const UploadModel= require('../model/schema');
 const fs = require('fs');
 const { Promise } = require('mongoose');
 
-exports.home = (req, res)=>{
-    res.render('main');
+exports.home = async (req, res)=>{
+    const all_images = await UploadModel.find();
+    res.render('main', {images: all_images});
 }
 exports.uploads = (req, res, next)=>{
     const files = req.files;
@@ -32,7 +33,7 @@ exports.uploads = (req, res, next)=>{
         return newUpload
                 .save()
                 .then(()=>{
-                    return {msg :`${files[index].originalname} successfully uploaded`}
+                    return {msg :`${files[index].originalname} successfully uploaded`};                    
                 })
                 .catch(error =>{
                     if(error){
@@ -46,8 +47,8 @@ exports.uploads = (req, res, next)=>{
 
     Promise.all(result)
     .then(msg =>{
-        res.json(msg);
-        // res.redirect('/');
+        res.render(msg);
+        res.redirect('/');
     }).catch(error=>{
         res.json(error);
     })
