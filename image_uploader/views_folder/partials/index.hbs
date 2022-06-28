@@ -1,0 +1,45 @@
+    
+    
+    {{!-- section --}}
+    <section class="section my-4">
+        <div class="container text-center">
+            <div class="title py-4">
+                <h3>Node Image Uploader</h3>
+                <p class="subtitle">Upload images to the <strong>Server</strong></p>
+            </div>
+        
+
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <form action="/uploadmultiple" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-8">
+                                    <input type="file" class="form-control" name="images" id="formFile" multiple>
+                                </div>
+                                <div class="col-2">
+                                    <input type="submit" role="button" class="btn btn-warning"  value="Upload Images">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                {{!-- display images --}}
+                <section class="my-5">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="card shadow" style="width: 18rem;">
+                                {{!-- <img src="..." class="card-img-top img-fluid" alt="..."> --}}
+                                <div class="card-body">
+                                    <h5 class="card-title font-poppins">UI/UX design</h5>
+                                    <p class="text-secondary font-size-09">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-info text-light text-size=09">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+        </div>
+    </section>
+    {{!-- /section --}}
